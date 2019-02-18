@@ -65,6 +65,7 @@ else:
         args += ["--config-path", "/compiled/homeserver.yaml"]
         if "SYNAPSE_WORKER_PATH" in environ:
             args += ["-a", environ["SYNAPSE_WORKER_PATH"]]
+            
     # Generate missing keys and start synapse
     subprocess.check_output(args + ["--generate-keys"])
     os.execv("/sbin/su-exec", ["su-exec", ownership] + args)
