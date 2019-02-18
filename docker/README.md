@@ -64,9 +64,10 @@ Global settings:
 * ``UID``, the user id Synapse will run as [default 991]
 * ``GID``, the group id Synapse will run as [default 991]
 * ``SYNAPSE_CONFIG_PATH``, path to a custom config file
+* ``SYNAPSE_WORKER_PATH``, path to folder with worker config files
 
 If ``SYNAPSE_CONFIG_PATH`` is set, you should generate a configuration file
-then customize it manually. No other environment variable is required.
+then customize it manually. No following environment variable is required.
 
 Otherwise, a dynamic configuration file will be used. The following environment
 variables are available for configuration:
