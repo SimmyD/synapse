@@ -49,7 +49,7 @@ else:
     # Parse the configuration file
     if "SYNAPSE_CONFIG_PATH" in environ:
         args += ["--config-path", environ["SYNAPSE_CONFIG_PATH"]]
-        if "SYNAPSE_WORKER_PATH" in evniro:
+        if "SYNAPSE_WORKER_PATH" in environ:
             args += ["-a", environ["SYNAPSE_WORKER_PATH"]]
     else:
         check_arguments(environ, ("SYNAPSE_SERVER_NAME", "SYNAPSE_REPORT_STATS"))
@@ -63,7 +63,7 @@ else:
         convert("/conf/log.config", "/compiled/log.config", environ)
         subprocess.check_output(["chown", "-R", ownership, "/data"])
         args += ["--config-path", "/compiled/homeserver.yaml"]
-        if "SYNAPSE_WORKER_PATH" in evniro:
+        if "SYNAPSE_WORKER_PATH" in environ:
             args += ["-a", environ["SYNAPSE_WORKER_PATH"]]
     # Generate missing keys and start synapse
     subprocess.check_output(args + ["--generate-keys"])
